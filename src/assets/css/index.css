@@ -1,0 +1,185 @@
+/**
+ * Common styles, Created by eric on 6/6/19.
+*/
+
+html,body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body{
+  background-image: url(../images/bg.jpg);
+  background-position: bottom left;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+ul,li{
+  list-style: none;
+  padding: 0;
+}
+
+#page{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc( 100% - 64px );
+  overflow: hidden;
+
+  margin-top: 64px;
+}
+
+.m-t-10{
+  margin-top: 10px!important;
+}
+
+.m-t-15{
+  margin-top: 15px!important;
+}
+
+.fz-14{
+  font-size: 14px;
+}
+
+.fz-12{
+  font-size: 12px;
+}
+
+.circle{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.fade {
+  animation: fade 2s linear infinite;
+}
+.fade_1 {
+  animation: fade 2s .5s linear infinite;
+}
+.fade_2 {
+  animation: fade 2s 1s linear infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: .2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
+
+.fade_fast{
+  animation: fade_fast 5s linear infinite;
+}
+
+@keyframes fade_fast {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  11% {
+    opacity: .3;
+  }
+  12% {
+    opacity: 1;
+  }
+  13% {
+    opacity: .3;
+  }
+  14% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skew_top {
+  animation: skew_x 3s linear infinite;
+  transform-origin: top left;
+}
+.skew_bottom {
+  animation: skew_y 3s linear infinite;
+  transform-origin: top right;
+}
+.skew_both{
+  animation: skew_both 3s linear infinite;
+  transform-origin: left top;
+}
+@keyframes skew_both {
+  0% {
+    transform: skew( 0deg, 0deg);
+  }
+  50% {
+    transform: skew( -5deg, -15deg );
+  }
+  100% {
+    transform: skew( 0deg, 0deg );
+  }
+}
+
+@keyframes skew_x {
+  0% {
+    transform: skewX( 0deg );
+  }
+  50% {
+    transform: skewX( -15deg );
+  }
+  
+  100% {
+    transform: skewX( 0deg );
+  }
+}
+
+@keyframes skew_y {
+  0% {
+    transform: skewY( 0deg );
+  }
+  50% {
+    transform: skewY( -10deg );
+  }
+  
+  100% {
+    transform: skewY( 0deg );
+  }
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tip{
+  animation: tip 1s linear infinite;
+}
+
+@keyframes tip {
+  from {
+    top: 50px;
+  }
+  to {
+    top: 45px;
+  }
+}
