@@ -1,7 +1,13 @@
 
 <template>
   <v-touch @swipeleft="handler" class="wrapper">
-    <component v-bind:is="view" @sendInfo = "getInfo"></component>
+    <transition
+      name="component-fade"
+      enter-active-class="animated bounceInRight delay-0s"
+      leave-active-class="animated bounceOutLeft"
+    >
+      <component v-bind:is="view" @sendInfo="getInfo"></component>
+    </transition>
   </v-touch>
 </template>
 
@@ -11,7 +17,7 @@ import Home from "./home";
 import Test01 from "./test01";
 import Test02 from "./test02";
 import Test03 from "./test03";
- 
+
 const loading = Loading;
 const home = Home;
 const test01 = Test01;
@@ -26,18 +32,17 @@ export default {
     test02,
     test03
   },
-  data() {      
+  data() {
     return {
-      view: test03,
-      loadEnded: false,
-    }
+      show: true,
+      view: loading,
+      loadEnded: false
+    };
   },
-  mounted() {
-    
-  },
+  mounted() {},
   methods: {
     handler() {
-      if(this.loadEnded){
+      if (this.loadEnded) {
         this.view = home;
         this.loadEnded = false;
       }
@@ -45,11 +50,13 @@ export default {
     //接收子组件发送过来信息，用来判断下一步走向
     getInfo(data) {
       console.log(data);
-      switch( data ){
-        case 100: this.loadEnded = true; break; //loading完成
-        default: this.view = data; //跳至对应组件
+      switch (data) {
+        case 100:
+          this.loadEnded = true;
+          break; //loading完成
+        default:
+          this.view = data; //跳至对应组件
       }
-      
     }
   }
 };
@@ -57,8 +64,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.wrapper{
+.wrapper {
   width: 100%;
   height: 100%;
 }
+/* 
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: all 0.3s ease;
+}
+.component-fade-enter, .component-fade-leave-to{
+  opacity: 0;
+  transform: translateX( -100% ) rotateX( 45deg );
+} */
 </style>

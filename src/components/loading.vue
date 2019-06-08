@@ -1,6 +1,6 @@
 
 <template>
-  <div id="page" class="swiper-container">
+  <div id="page">
       <img class="showbar" src="../assets/images/loading/showbar.png">
       <img
         class="diamond_left"
@@ -72,7 +72,7 @@ export default {
         clearInterval(timer);
         this.$emit('sendInfo', this.progress);
       }
-    }, 80);
+    }, 10);
   },
   beforeDestroy() {
     this.entry = false;

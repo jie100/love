@@ -1,6 +1,6 @@
 
 <template>
-  <div id="page" class="swiper-container">
+  <div id="page">
     <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
     <img class="bracelet" src="../assets/images/test02/bracelet.png">
     <img class="diamond_m fade_fast" src="../assets/images/test02/diamond_m.png">

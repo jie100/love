@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Loading from "@/components/loading";
 
-Vue.use(Router);
+//Vue.use(Router);
 
 export default new Router({
   mode: "hash",

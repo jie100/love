@@ -1,6 +1,6 @@
 
 <template>
-  <div id="page" class="swiper-container">
+  <div id="page">
     <img class="shadow" src="../assets/images/test01/shadow.png">
     <img class="diamond_big" src="../assets/images/test01/diamond_big.png">
     <img class="diamond_s" src="../assets/images/test01/diamond_s.png">
@@ -45,10 +45,10 @@ export default {
     }, 80);
   },
   methods: {
-    select( index ) {
-      this.$store.commit('setAnswerId', { index: 1, answerId: index});
+    select( answerId ) {
+      this.$store.commit('setAnswerId', { 'index': 1, 'answerId': answerId});
       console.log( this.$store.state.answerId_01 );
-      //this.$emit('sendInfo', "test02");
+      this.$emit('sendInfo', "test02");
       console.log("next test");
     }
   },

@@ -1,6 +1,6 @@
 
 <template>
-  <div id="page" class="swiper-container">
+  <div id="page">
     <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
     <img class="bracelet" src="../assets/images/test02/bracelet.png">
     <img class="diamond_m fade_fast" src="../assets/images/test02/diamond_m.png">
@@ -9,7 +9,7 @@
     <img class="player" src="../assets/images/test02/player.png">
     <img class="diamond_left_bottom" src="../assets/images/test02/diamond_left_bottom.png">
 
-    <div class="test_box">
+    <!-- <div class="test_box">
       <img class="number" src="../assets/images/test02/number.png">
       <div class="title_box m-t-10">
         <img class="play_btn " :class="{'rotate': hasPlay }" @click="goPlay" src="../assets/images/test02/play_btn.png">
@@ -25,11 +25,11 @@
           <div class="answer answer_d" @click="select"></div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="syllable_box">
+    <!-- <div class="syllable_box">
       <img class="syllable" src="../assets/images/test02/syllable.png">
-    </div>
+    </div> -->
   </div>
 </template>
 
