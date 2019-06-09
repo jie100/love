@@ -1,10 +1,13 @@
 
 <template>
   <v-touch @swipeleft="handler" class="wrapper">
-    <transition
+    <!-- <transition
       name="component-fade"
       enter-active-class="animated bounceInRight delay-0s"
       leave-active-class="animated bounceOutLeft"
+    > -->
+    <transition
+      name="component-fade"
     >
       <component v-bind:is="view" @sendInfo="getInfo"></component>
     </transition>
@@ -19,12 +22,20 @@ import Process from "./process";
 import Test01 from "./test01";
 import Test02 from "./test02";
 import Test03 from "./test03";
+import Test04 from "./test04";
+import Test05 from "./test05";
+import Result01 from "./result01";
+import Upload from "./upload";
 
 const loading = Loading;
 const home = Home;
 const test01 = Test01;
 const test02 = Test02;
 const test03 = Test03;
+const test04 = Test04;
+const test05 = Test05;
+const result01 = Result01;
+const upload = Upload;
 
 export default {
   components: {
@@ -33,13 +44,17 @@ export default {
     process: Process,
     test01,
     test02,
-    test03
+    test03,
+    test04,
+    test05,
+    result01,
+    upload
   },
   data() {
     return {
+      view: upload,
+      loadEnded: false,
       testNumber: "",
-      view: test03,
-      loadEnded: false
     };
   },
   mounted() {},
@@ -58,7 +73,7 @@ export default {
           this.loadEnded = true;
           break; //loading完成
         default:
-          this.testNumber = data;
+          this.testNumber = data; //进度提示
           this.view = data; //跳至对应组件
       }
     }
@@ -72,7 +87,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-/* 
+
 .component-fade-enter-active,
 .component-fade-leave-active {
   transition: all 0.3s ease;
@@ -80,5 +95,5 @@ export default {
 .component-fade-enter, .component-fade-leave-to{
   opacity: 0;
   transform: translateX( -100% ) rotateX( 45deg );
-} */
+}
 </style>

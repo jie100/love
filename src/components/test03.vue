@@ -1,14 +1,6 @@
 
 <template>
   <div id="page">
-    <!-- <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
-    <img class="bracelet" src="../assets/images/test02/bracelet.png">
-    <img class="diamond_m fade_fast" src="../assets/images/test02/diamond_m.png">
-    <img class="diamond_s" src="../assets/images/test02/diamond_s.png">
-    <img class="diamond_bottom_center" src="../assets/images/test02/diamond_bottom_center.png">
-    <img class="player" src="../assets/images/test02/player.png">
-    <img class="diamond_left_bottom" src="../assets/images/test02/diamond_left_bottom.png">-->
-
     <div class="bg">
       <img class="wheel_l" src="../assets/images/test03/wheel_l.png">
       <img class="wheel_s" src="../assets/images/test03/wheel_s.png">
@@ -28,27 +20,42 @@
       <img class="bracelet" src="../assets/images/test03/bracelet.png">
     </div>
 
-    <!-- <div class="test_box">
-      <img class="number" src="../assets/images/test02/number.png">
-      <div class="title_box m-t-10">
-        <img class="play_btn " :class="{'rotate': hasPlay }" @click="goPlay" src="../assets/images/test02/play_btn.png">
-        <img class="title" src="../assets/images/test02/title.png">
-        <img class="tip_btn tip" v-if="firstClick" src="../assets/images/test02/tip_btn.png">
-      </div>
-      <div class="btns_box">
-        <img class="tests" src="../assets/images/test02/tests.png">
-        <div class="btns">
-          <div class="answer answer_a" @click="select"></div>
-          <div class="answer answer_b" @click="select"></div>
-          <div class="answer answer_c" @click="select"></div>
-          <div class="answer answer_d" @click="select"></div>
+    <div class="test_box">
+      <img class="lunch" v-if="isPlay" src="../assets/images/test03/lunch.gif">
+      <img class="lunch" v-else src="../assets/images/test03/lunch.png">
+
+      <img class="title" src="../assets/images/test03/title.png">
+
+      <div class="options">
+        <div class="option option01">
+          <div class="click_area click_area_01" @click="select"></div>
+          <img
+            class="play_btn"
+            :class="{ 'rotate': play[0] }"
+            @click="goPlay($event,0)"
+            src="../assets/images/test03/play_btn.png"
+          >
+        </div>
+        <div class="option option02">
+          <div class="click_area click_area_02" @click="select"></div>
+          <img
+            class="play_btn"
+            :class="{ 'rotate': play[1] }"
+            @click="goPlay($event,1)"
+            src="../assets/images/test03/play_btn.png"
+          >
+        </div>
+        <div class="option option03">
+          <div class="click_area click_area_03" @click="select"></div>
+          <img
+            class="play_btn play_btn_03"
+            :class="{ 'rotate': play[2] }"
+            @click="goPlay($event,2)"
+            src="../assets/images/test03/play_btn.png"
+          >
         </div>
       </div>
-    </div>-->
-
-    <!-- <div class="syllable_box">
-      <img class="syllable" src="../assets/images/test02/syllable.png">
-    </div>-->
+    </div>
   </div>
 </template>
 
@@ -57,33 +64,37 @@ export default {
   data() {
     return {
       entry: false,
-      firstClick: true,
-      hasPlay: false,
-      swiperOption: {}
+      isPlay: false,
+      play: [ false,false,false ]
     };
   },
   mounted() {
     this.entry = true;
   },
   methods: {
-    goPlay(e) {
+    goPlay(e, index) {
       let target = e.target;
-      //console.log( target.className );
+      console.log(target.className);
+      console.log(this.play);
       if (target.className.search("rotate") > -1) {
-        this.hasPlay = false;
+        this.play = [false,false,false];
+        this.isPlay = false;
       } else {
-        this.hasPlay = true;
+        this.play = [false,false,false];
+        this.play[index] = true;
+        this.isPlay = true;
       }
-
-      this.firstClick = false;
+      console.log(this.play);
     },
+
     select() {
-      this.$emit("sendInfo", "test03");
+      this.$emit("sendInfo", "test04");
       console.log("next test");
     }
   },
   beforeDestroy() {
     this.entry = false;
+    this.isPlay = false;
   }
 };
 </script>
@@ -120,13 +131,13 @@ export default {
   right: 0;
   width: 56px;
 }
-.diamond_top_right{
+.diamond_top_right {
   position: absolute;
   top: 66px;
   right: 40px;
   width: 42px;
 }
-.diamond_left_center{
+.diamond_left_center {
   position: absolute;
   top: 260px;
   left: 38px;
@@ -158,133 +169,72 @@ export default {
   width: 86px;
 }
 
-/* 
 .test_box {
-  position: relative;
+  position: absolute;
+  top: 76px;
+  left: 40px;
   width: 85vw;
-  margin: 144px auto 0;
 }
 
-.number {
-  width: 222px;
-  display: block;
-  margin: 0 auto;
+.lunch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 248px;
 }
-
-.title_box {
-  position: relative;
-  width: 90%;
-  margin: 10px auto;
-}
-
-.play_btn {
-  display: inline;
-  margin-left: 6px;
-  width: 36px;
-}
-
 .title {
-  display: inline;
-  width: 180px;
+  width: 224px;
+  display: block;
+  margin: 102px 0 0 72px;
+}
+.options {
+  position: relative;
+  margin-top: 20px;
+  width: 266px;
+  height: 156px;
+  background-image: url("../assets/images/test03/options.png");
+  background-size: 100% 100%;
 }
 
-.tip_btn {
+.option {
   position: absolute;
-  top: 50px;
-  left: 16px;
-  width: 18px;
+  width: 184px;
+  height: 32px;
+  transform-origin: center;
 }
 
-.btns_box {
-  width: 300px;
-  height: 172px;
-  margin-top: 34px;
+.option01 {
+  background-color: rgba(255, 0, 0, 0.3);
+  transform: skewY(-10deg);
+  top: 12px;
+  left: 12px;
 }
-
-.tests {
+.option02 {
+  background-color: rgba(255, 0, 0, 0.3);
+  transform: skewY(6deg);
+  top: 60px;
+  left: 82px;
+}
+.option03 {
+  background-color: rgba(255, 0, 0, 0.3);
+  transform: skewY(-10deg);
+  top: 104px;
+  left: 0px;
+}
+.click_area {
   width: 100%;
+  height: 100%;
 }
-
-.btns {
+.play_btn {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 300px;
-  height: 172px;
-  overflow: hidden;
+  left: 106%;
+  top: 0;
+  width: 32px;
 }
 
-.answer {
-  width: 200px;
-  height: 24%;
+.play_btn_03 {
+  top: 130%;
+  left: 10%;
 }
 
-.answer_a {
-  margin-left: auto;
-}
-
-.answer_b {
-  margin-left: 20%;
-}
-
-.answer_c {
-  margin-left: 15%;
-}
-
-.syllable_box {
-  position: absolute;
-  bottom: 78px;
-  right: 84px;
-  width: 175px;
-}
-
-.syllable_box img {
-  width: 100%;
-}
-
-.bracelet {
-  position: absolute;
-  top: 55px;
-  left: 25px;
-  width: 130px;
-}
-
-.diamond_m {
-  position: absolute;
-  top: 90px;
-  right: 26px;
-  width: 48px;
-}
-
-.diamond_s {
-  position: absolute;
-  bottom: 70px;
-  left: 36px;
-  width: 42px;
-}
-
-.diamond_big {
-  position: absolute;
-  bottom: 32px;
-  right: 18px;
-  width: 94px;
-}
-
-
-
-
-
-.diamond_left_bottom{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 46px;
-}
-
-.player {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100px;
-} */
 </style>

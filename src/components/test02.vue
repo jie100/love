@@ -1,18 +1,27 @@
 
 <template>
   <div id="page">
-    <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
-    <img class="bracelet" src="../assets/images/test02/bracelet.png">
-    <img class="diamond_m fade_fast" src="../assets/images/test02/diamond_m.png">
-    <img class="diamond_s" src="../assets/images/test02/diamond_s.png">
-    <img class="diamond_bottom_center" src="../assets/images/test02/diamond_bottom_center.png">
-    <img class="player" src="../assets/images/test02/player.png">
-    <img class="diamond_left_bottom" src="../assets/images/test02/diamond_left_bottom.png">
+    <div class="bg">
+      <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
+      <img class="bracelet" src="../assets/images/test02/bracelet.png">
+      <img class="diamond_m fade_fast" src="../assets/images/test02/diamond_m.png">
+      <img class="diamond_s" src="../assets/images/test02/diamond_s.png">
+      <img class="diamond_bottom_center" src="../assets/images/test02/diamond_bottom_center.png">
+      <!-- <img class="player" src="../assets/images/test02/player.png"> -->
+      <img class="diamond_left_bottom" src="../assets/images/test02/diamond_left_bottom.png">
+      <img class="player" src="../assets/images/test02/player.png">
+      <img class="player" v-if="hasPlay" src="../assets/images/test02/player.gif">
+    </div>
 
     <div class="test_box">
       <img class="number" src="../assets/images/test02/number.png">
       <div class="title_box m-t-10">
-        <img class="play_btn " :class="{'rotate': hasPlay }" @click="goPlay" src="../assets/images/test02/play_btn.png">
+        <img
+          class="play_btn"
+          :class="{'rotate': hasPlay }"
+          @click="goPlay"
+          src="../assets/images/test02/play_btn.png"
+        >
         <img class="title" src="../assets/images/test02/title.png">
         <img class="tip_btn tip" v-if="firstClick" src="../assets/images/test02/tip_btn.png">
       </div>
@@ -25,10 +34,6 @@
           <div class="answer answer_d" @click="select"></div>
         </div>
       </div>
-    </div>
-
-    <div class="syllable_box">
-      <img class="syllable" src="../assets/images/test02/syllable.png">
     </div>
   </div>
 </template>
@@ -50,16 +55,16 @@ export default {
     goPlay(e) {
       let target = e.target;
       //console.log( target.className );
-      if( target.className.search('rotate')> -1 ){
+      if (target.className.search("rotate") > -1) {
         this.hasPlay = false;
-      }else{ 
+      } else {
         this.hasPlay = true;
       }
 
       this.firstClick = false;
     },
     select() {
-      this.$emit('sendInfo', "test03");
+      this.$emit("sendInfo", "test03");
       console.log("next test");
     }
   },
@@ -143,15 +148,19 @@ export default {
   margin-left: 15%;
 }
 
-.syllable_box {
+/* .player_box {
   position: absolute;
-  bottom: 78px;
-  right: 84px;
-  width: 175px;
-}
+  bottom: 0;
+  right: 0;
+  width: 256px;
+  height: 152px;
+} */
 
-.syllable_box img {
-  width: 100%;
+.player {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 256px;
 }
 
 .bracelet {
@@ -196,17 +205,10 @@ export default {
   width: 56px;
 }
 
-.diamond_left_bottom{
+.diamond_left_bottom {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 46px;
-}
-
-.player {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100px;
 }
 </style>
