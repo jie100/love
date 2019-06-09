@@ -13,13 +13,14 @@
     <img class="leaf_left_bottom" src="../assets/images/test01/leaf_left_bottom.png">
     <img class="flower_s" src="../assets/images/test01/flower_s.png">
 
-    <img class="flower" src="../assets/images/test01/flower.png">
+    <!-- <img class="flower" src="../assets/images/test01/flower.png"> -->
+    <img class="flower flower_gif" src="../assets/images/test01/flower.gif">
 
     <div class="test_box">
       <img class="test01" src="../assets/images/test01/test01.png">
       <div class="btns">
         <div class="answer01 answer01_a" @click="select(1)"></div>
-        <div class="answer01 answer01_b"  @click="select(2)"></div>
+        <div class="answer01 answer01_b" @click="select(2)"></div>
       </div>
     </div>
   </div>
@@ -45,10 +46,10 @@ export default {
     }, 80);
   },
   methods: {
-    select( answerId ) {
-      this.$store.commit('setAnswerId', { 'index': 1, 'answerId': answerId});
-      console.log( this.$store.state.answerId_01 );
-      this.$emit('sendInfo', "test02");
+    select(answerId) {
+      this.$store.commit("setAnswerId", { index: 1, answerId: answerId });
+      console.log(this.$store.state.answerId_01);
+      this.$emit("sendInfo", "test02");
       console.log("next test");
     }
   },
@@ -62,9 +63,9 @@ export default {
 <style scoped>
 .flower {
   position: absolute;
-  top: 22px;
-  left: 34px;
-  width: 150px;
+  top: 28px;
+  left: 12px;
+  width: 220px;
 }
 .flower_s {
   position: absolute;
@@ -90,12 +91,12 @@ export default {
   height: 57%;
 }
 
-.answer01{
+.answer01 {
   width: 100%;
   height: 38%;
 }
 
-.answer01_b{
+.answer01_b {
   width: 85%;
   margin-top: 5%;
   margin-left: 15%;

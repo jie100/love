@@ -1,13 +1,32 @@
 
 <template>
   <div id="page">
-    <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
+    <!-- <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
     <img class="bracelet" src="../assets/images/test02/bracelet.png">
     <img class="diamond_m fade_fast" src="../assets/images/test02/diamond_m.png">
     <img class="diamond_s" src="../assets/images/test02/diamond_s.png">
     <img class="diamond_bottom_center" src="../assets/images/test02/diamond_bottom_center.png">
     <img class="player" src="../assets/images/test02/player.png">
-    <img class="diamond_left_bottom" src="../assets/images/test02/diamond_left_bottom.png">
+    <img class="diamond_left_bottom" src="../assets/images/test02/diamond_left_bottom.png">-->
+
+    <div class="bg">
+      <img class="wheel_l" src="../assets/images/test03/wheel_l.png">
+      <img class="wheel_s" src="../assets/images/test03/wheel_s.png">
+      <img class="leaf_top" src="../assets/images/test03/leaf_top.png">
+      <img class="leaf_left" src="../assets/images/test03/leaf_left.png">
+      <img class="diamond_right" src="../assets/images/test01/diamond_right.png">
+
+      <img class="diamond_top_right" src="../assets/images/test03/diamond_top_right.png">
+      <img class="diamond_left_center" src="../assets/images/test03/diamond_left_center.png">
+
+      <img class="point" src="../assets/images/test03/point_left_bottom.png">
+
+      <img class="diamond_bottom_center" src="../assets/images/test02/diamond_bottom_center.png">
+
+      <img class="diamond_bottom" src="../assets/images/test03/diamond_bottom.png">
+
+      <img class="bracelet" src="../assets/images/test03/bracelet.png">
+    </div>
 
     <!-- <div class="test_box">
       <img class="number" src="../assets/images/test02/number.png">
@@ -25,11 +44,11 @@
           <div class="answer answer_d" @click="select"></div>
         </div>
       </div>
-    </div> -->
+    </div>-->
 
     <!-- <div class="syllable_box">
       <img class="syllable" src="../assets/images/test02/syllable.png">
-    </div> -->
+    </div>-->
   </div>
 </template>
 
@@ -50,16 +69,16 @@ export default {
     goPlay(e) {
       let target = e.target;
       //console.log( target.className );
-      if( target.className.search('rotate')> -1 ){
+      if (target.className.search("rotate") > -1) {
         this.hasPlay = false;
-      }else{ 
+      } else {
         this.hasPlay = true;
       }
 
       this.firstClick = false;
     },
     select() {
-      this.$emit('sendInfo', "test03");
+      this.$emit("sendInfo", "test03");
       console.log("next test");
     }
   },
@@ -71,6 +90,75 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.leaf_top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 82px;
+}
+.leaf_left {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 68px;
+}
+.wheel_l {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 105px;
+}
+.wheel_s {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 32px;
+}
+.diamond_right {
+  position: absolute;
+  top: 220px;
+  right: 0;
+  width: 56px;
+}
+.diamond_top_right{
+  position: absolute;
+  top: 66px;
+  right: 40px;
+  width: 42px;
+}
+.diamond_left_center{
+  position: absolute;
+  top: 260px;
+  left: 38px;
+  width: 60px;
+}
+.bracelet {
+  position: absolute;
+  bottom: 8px;
+  right: 18px;
+  width: 96px;
+}
+.diamond_bottom_center {
+  position: absolute;
+  bottom: 0;
+  right: 120px;
+  width: 84px;
+}
+.diamond_bottom {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+}
+.point {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 86px;
+}
+
+/* 
 .test_box {
   position: relative;
   width: 85vw;
@@ -182,19 +270,9 @@ export default {
   width: 94px;
 }
 
-.diamond_bottom_center {
-  position: absolute;
-  bottom: 0;
-  right: 120px;
-  width: 84px;
-}
 
-.diamond_right {
-  position: absolute;
-  top: 24px;
-  right: 0;
-  width: 56px;
-}
+
+
 
 .diamond_left_bottom{
   position: absolute;
@@ -208,5 +286,5 @@ export default {
   bottom: 0;
   right: 0;
   width: 100px;
-}
+} */
 </style>

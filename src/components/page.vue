@@ -8,12 +8,14 @@
     >
       <component v-bind:is="view" @sendInfo="getInfo"></component>
     </transition>
+    <process v-if="testNumber && testNumber.indexOf('test')>-1 " :progress=" testNumber "></process>
   </v-touch>
 </template>
 
 <script>
 import Loading from "./loading";
 import Home from "./home";
+import Process from "./process";
 import Test01 from "./test01";
 import Test02 from "./test02";
 import Test03 from "./test03";
@@ -28,14 +30,15 @@ export default {
   components: {
     loading,
     home,
+    process: Process,
     test01,
     test02,
     test03
   },
   data() {
     return {
-      show: true,
-      view: loading,
+      testNumber: "",
+      view: test03,
       loadEnded: false
     };
   },
@@ -55,6 +58,7 @@ export default {
           this.loadEnded = true;
           break; //loading完成
         default:
+          this.testNumber = data;
           this.view = data; //跳至对应组件
       }
     }
