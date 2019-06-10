@@ -6,7 +6,8 @@
       <img class="diamond_left" src="../assets/images/test04/diamond_left.png">
       <img class="diamond_left_bottom" src="../assets/images/test04/diamond_left_bottom.png">
       <img class="ticket" src="../assets/images/test04/ticket.png">
-      <img class="birds" src="../assets/images/test04/birds.png">
+      <!-- <img class="birds" src="../assets/images/test04/birds.png"> -->
+      <img class="birds" src="../assets/images/test04/birds.gif">
       <img
         class="leaf_bottom"
         :class="{skew_bottom:entry}"
@@ -136,7 +137,10 @@ export default {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 320px;
+  /* width: 320px;
   height: 520px;
+   */
+  width: 85vw;
+  
 }
 </style>

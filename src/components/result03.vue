@@ -1,13 +1,13 @@
 
 <template>
   <div id="page">
-    <img class="result_png_bg" src="../assets/images/results/result01_png_bg.png">
+    <img class="diamond_right" src="../assets/images/loading/diamond_right.png">
+    <img class="result_png_bg" src="../assets/images/results/result03_png_bg.png">
     <div class="center">
       <img class="cd rotate" src="../assets/images/results/cd.png">
-      <img class="result_cover" src="../assets/images/results/result01_cover.png">
-    </div>
-    
-    <img class="result_bg" src="../assets/images/results/result01_bg.jpg">
+      <img class="result_cover" src="../assets/images/results/result03_cover.png">
+    </div> 
+    <img class="result_bg" src="../assets/images/results/result03_bg.jpg">
     <img class="result_btn" @click="getGift" src="../assets/images/results/result_btn.png">
   </div>
 </template>
@@ -40,23 +40,29 @@ export default {
 .center {
   position: relative;
   margin: 20px auto;
-  width: 324px;
+  width: 100%;
   height: 260px;
 }
 .result_cover {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 352px;
 }
 .cd {
   width: 180px;
-  margin: 34px 134px;
+  margin: 34px 162px;
 }
 @media screen and (max-width: 321px) {
   .center {
     transform: scale(.8);
   }
+}
+.diamond_right {
+  position: absolute;
+  right: 0;
+  top: -16px;
+  width: 36px;
 }
 .result_btn {
   position: absolute;

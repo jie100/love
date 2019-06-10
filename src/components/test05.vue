@@ -9,7 +9,8 @@
     </div>
 
     <div class="test_box">
-      <img class="violin" src="../assets/images/test05/violin.png">
+      <!-- <img class="violin" src="../assets/images/test05/violin.png"> -->
+      <img class="violin" src="../assets/images/test05/violin.gif">
       <img class="title" src="../assets/images/test05/title.png">
       <img class="options" @click="select" src="../assets/images/test05/options.png">
       <!-- <div class="options_box">
@@ -44,25 +45,25 @@ export default {
       console.log(first);
       console.log(second);
 
-      // if( (first === 1 && second === 1) || (first === 2 && second === 3) ){
-      //   console.log('摇滚：result01');
-      //   this.$emit("sendInfo", "result01");
-      // }else if( (first === 1 && second === 2) || (first === 2 && second === 4) ){
-      //   console.log('爵士：result02');
-      //   this.$emit("sendInfo", "result02");
-      // }else if( (first === 1 && second === 3) || (first === 2 && second === 2) ){
-      //   console.log('金属：result03');
-      //   this.$emit("sendInfo", "result03");
-      // }else if( (first === 1 && second === 4) || (first === 2 && second === 1) ){
-      //   console.log('民谣：result04');
-      //   this.$emit("sendInfo", "result04");
-      // }else{
-      //   console.log('蓝调：result05');
-      //   this.$emit("sendInfo", "result05");
-      // }
+      if( (first === 1 && second === 1) || (first === 2 && second === 3) ){
+        console.log('摇滚：result01');
+        this.$emit("sendInfo", "result01");
+      }else if( (first === 1 && second === 2) || (first === 2 && second === 4) ){
+        console.log('爵士：result02');
+        this.$emit("sendInfo", "result02");
+      }else if( (first === 1 && second === 3) || (first === 2 && second === 2) ){
+        console.log('金属：result03');
+        this.$emit("sendInfo", "result03");
+      }else if( (first === 1 && second === 4) || (first === 2 && second === 1) ){
+        console.log('民谣：result04');
+        this.$emit("sendInfo", "result04");
+      }else{
+        console.log('蓝调：result05');
+        this.$emit("sendInfo", "result05");
+      }
 
-      this.$emit("sendInfo", "result01");
-      console.log("next test");
+      //this.$emit("sendInfo", "result01");
+      //console.log("next test");
     }
   },
   beforeDestroy() {

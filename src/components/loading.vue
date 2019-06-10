@@ -1,6 +1,7 @@
 
 <template>
   <div id="page">
+    <div class="bg">
       <img class="showbar" src="../assets/images/loading/showbar.png">
       <img
         class="diamond_left"
@@ -24,34 +25,35 @@
         :class="{skew_bottom:entry}"
         src="../assets/images/loading/leaf_bottom.png"
       >
+    </div>
 
-      <div class="progress">
-        <span class="fz-12">loading</span>
-        <Progress
-          class="progress_bar"
-          :percent="progress"
-          :stroke-width="2"
-          stroke-color="#5b6886"
-          hide-info
-        ></Progress>
-        <ul class="loading_content fz-12">
-          <li>柏拉图在《乡宴》中说</li>
-          <li v-if="progress>=10">「所谓爱情，就是我们的心，为美丽之人所吸引」</li>
-          <li class="m-t-15" v-if="progress>=20">爱情的诞生</li>
-          <li v-if="progress>=30">会带给你去向</li>
-          <li v-if="progress>=40">更真/更美/更善的境界与真理</li>
-          <li class="m-t-15" v-if="progress>=50">音乐里的爱情，拨动人之心弦</li>
-          <li v-if="progress>=60">让你想起某个瞬间、某些往事</li>
-          <li class="m-t-15" v-if="progress>=70">这个夏天，在音乐里，与TA共享浪漫</li>
-          <li v-if="progress>=80">
-            <img class="music_bar" src="../assets/images/loading/music_bar.png">
-          </li>
-          <li v-if="progress>=90">请打开声音</li>
-          <li v-if="progress>=100">
-            <img class="btn" src="../assets/images/loading/loading_btn.png">
-          </li>
-        </ul>
-      </div>
+    <div class="progress">
+      <span class="fz-12">loading</span>
+      <Progress
+        class="progress_bar"
+        :percent="progress"
+        :stroke-width="2"
+        stroke-color="#5b6886"
+        hide-info
+      ></Progress>
+      <ul class="loading_content fz-12">
+        <li>柏拉图在《乡宴》中说</li>
+        <li v-if="progress>=10">「所谓爱情，就是我们的心，为美丽之人所吸引」</li>
+        <li class="m-t-15" v-if="progress>=20">爱情的诞生</li>
+        <li v-if="progress>=30">会带给你去向</li>
+        <li v-if="progress>=40">更真/更美/更善的境界与真理</li>
+        <li class="m-t-15" v-if="progress>=50">音乐里的爱情，拨动人之心弦</li>
+        <li v-if="progress>=60">让你想起某个瞬间、某些往事</li>
+        <li class="m-t-15" v-if="progress>=70">这个夏天，在音乐里，与TA共享浪漫</li>
+        <li v-if="progress>=80">
+          <img class="music_bar" src="../assets/images/loading/music_bar.png">
+        </li>
+        <li v-if="progress>=90">请打开声音</li>
+        <li v-if="progress>=100">
+          <img class="btn" src="../assets/images/loading/loading_btn.png">
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -70,7 +72,7 @@ export default {
       this.progress++;
       if (this.progress === 100) {
         clearInterval(timer);
-        this.$emit('sendInfo', this.progress);
+        this.$emit("sendInfo", this.progress);
       }
     }, 10);
   },

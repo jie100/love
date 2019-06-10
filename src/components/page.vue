@@ -25,6 +25,10 @@ import Test03 from "./test03";
 import Test04 from "./test04";
 import Test05 from "./test05";
 import Result01 from "./result01";
+import Result02 from "./result02";
+import Result03 from "./result03";
+import Result04 from "./result04";
+import Result05 from "./result05";
 import Upload from "./upload";
 
 const loading = Loading;
@@ -35,6 +39,10 @@ const test03 = Test03;
 const test04 = Test04;
 const test05 = Test05;
 const result01 = Result01;
+const result02 = Result02;
+const result03 = Result03;
+const result04 = Result04;
+const result05 = Result05;
 const upload = Upload;
 
 export default {
@@ -48,11 +56,15 @@ export default {
     test04,
     test05,
     result01,
+    result02,
+    result03,
+    result04,
+    result05,
     upload
   },
   data() {
     return {
-      view: upload,
+      view: test01,
       loadEnded: false,
       testNumber: "",
     };
